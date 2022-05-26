@@ -10,6 +10,7 @@ const Review = (props) => {
   function ReviewBtn() {
     history.push("/");
   }
+  console.log(week);
 
   return (
     <>
@@ -18,17 +19,17 @@ const Review = (props) => {
         <Text>평점 남기기</Text>
       </ReviewText>
       <RatingBox>
-        {Array.from([0, 1, 2, 3, 4], (index) => {
+        {Array.from([0, 1, 2, 3, 4], (score) => {
           return (
             <Circle
-              key={index}
+              key={score}
               style={{
-                backgroundColor: rate < index ? "#ddd" : "#fff500",
+                backgroundColor: rate >= score ? "#fff500" : "#ddd",
               }}
               onClick={() => {
-                setRate(index);
+                setRate(score);
                 console.log(rate);
-                console.log(index);
+                console.log(score);
               }}
             ></Circle>
           );

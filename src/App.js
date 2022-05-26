@@ -1,20 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import Review from "./Review";
+import NotFound from "./NotFound";
 
 function App() {
   return (
     <Background>
       <Container>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/review/:day">
-          <Review />
-        </Route>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/review/:day">
+            <Review />
+          </Route>
+          <Route component={NotFound} />
+        </Switch>
       </Container>
     </Background>
   );

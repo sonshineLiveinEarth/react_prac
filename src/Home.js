@@ -11,6 +11,7 @@ const Home = (props) => {
   const WeekRate = WeekDay.map((day) => {
     const random = Math.floor(Math.random() * 5 + 1);
     RateSum += random;
+
     return {
       day: day,
       rate: random,
@@ -20,6 +21,17 @@ const Home = (props) => {
   const average = (RateSum / 7).toFixed(1);
   const [avg, setAvg] = useState(average);
 
+  // function reset() {
+  //   if (avg === 0.0) {
+  //     return (
+  //       <Circle
+  //         style={{
+  //           backgroundColor: "#ddd",
+  //         }}
+  //       />
+  //     );
+  //   }
+  // }
   return (
     <>
       <h2> 내 일주일은?</h2>
@@ -28,15 +40,18 @@ const Home = (props) => {
           <Line key={i}>
             <h3>{d.day}</h3>
             {Array.from({ length: 5 }, (c, i) => {
+              console.log(avg);
               return (
                 <Circle
                   key={i}
                   style={{
-                    backgroundColor: d.rate > i ? "#fff500" : "#ddd",
+                    backgroundColor:
+                      d.rate > i ? "#fff500" : avg === 0.0 ? "#ddd" : "#ddd",
                   }}
                 />
               );
             })}
+
             <Tri
               onClick={() => {
                 history.push(`/review/${WeekDay[i]}`);
@@ -47,8 +62,8 @@ const Home = (props) => {
           </Line>
         );
       })}
-      <Hr />
 
+      <Hr />
       <Score>
         <Text>평균 평점</Text>
         <br />
@@ -101,7 +116,7 @@ const Tri = styled.button`
 const Hr = styled.hr`
   width: 300px;
   border: 0.5px solid #ddd;
-  margin: 6px 0px 24px 0px;
+  margin: 10px 0px 24px 0px;
 `;
 
 // const RateBox = styled.div`
