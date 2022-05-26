@@ -3,20 +3,18 @@ import styled from "styled-components";
 import { useHistory, useParams } from "react-router-dom";
 
 const Review = (props) => {
-  const [rate, setRate] = useState(0);
+  const [rate, setRate] = useState(-1);
   let history = useHistory();
-  const params = useParams();
-  console.log(params);
+  const week = useParams();
 
   function ReviewBtn() {
     history.push("/");
-    history.go(0);
   }
 
   return (
     <>
       <ReviewText>
-        <Day>{params.weekday}요일</Day>
+        <Day>{week.day}요일</Day>
         <Text>평점 남기기</Text>
       </ReviewText>
       <RatingBox>
@@ -29,6 +27,8 @@ const Review = (props) => {
               }}
               onClick={() => {
                 setRate(index);
+                console.log(rate);
+                console.log(index);
               }}
             ></Circle>
           );
@@ -76,14 +76,6 @@ const Circle = styled.div`
     opacity: 0.5;
   }
 `;
-
-// const Line = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 20px 0px;
-// `;
 
 const Btn = styled.button`
   width: 260px;

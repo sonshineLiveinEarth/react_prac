@@ -12,7 +12,7 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/review/:weekday" exact>
+        <Route path="/review/:day">
           <Review />
         </Route>
       </Container>
@@ -34,9 +34,9 @@ const Background = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 85vh;
   width: 400px;
-  box-shadow: 10px 10px 10px lightgray;
+  box-shadow: 10px 10px 20px #e2e2e2;
   margin: auto;
   justify-content: center;
   align-items: center;
