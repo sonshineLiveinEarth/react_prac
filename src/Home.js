@@ -21,6 +21,8 @@ const Home = (props) => {
   const average = (RateSum / 7).toFixed(1);
   const [avg, setAvg] = useState(average);
 
+  // const zero = setAvg(parseInt(0).toFixed(1))
+
   // function reset() {
   //   if (avg === 0.0) {
   //     return (
@@ -40,13 +42,13 @@ const Home = (props) => {
           <Line key={i}>
             <h3>{d.day}</h3>
             {Array.from({ length: 5 }, (c, i) => {
-              console.log(avg);
+              console.log({ avg });
               return (
                 <Circle
                   key={i}
                   style={{
                     backgroundColor:
-                      d.rate > i ? "#fff500" : avg === 0.0 ? "#ddd" : "#ddd",
+                      d.rate > i && avg !== "0.0" ? "#fff500" : "#ddd",
                   }}
                 />
               );
@@ -72,6 +74,7 @@ const Home = (props) => {
       <Btn
         onClick={() => {
           setAvg(parseInt(0).toFixed(1));
+          console.log(typeof parseInt(0).toFixed(1));
         }}
       >
         Reset
