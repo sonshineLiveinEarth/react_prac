@@ -38,11 +38,11 @@ const Home = (props) => {
     <>
       <h2> 내 일주일은?</h2>
       {WeekRate.map((d, i) => {
+        console.log(d);
         return (
           <Line key={i}>
             <h3>{d.day}</h3>
             {Array.from({ length: 5 }, (c, i) => {
-              console.log({ avg });
               return (
                 <Circle
                   key={i}
@@ -74,7 +74,6 @@ const Home = (props) => {
       <Btn
         onClick={() => {
           setAvg(parseInt(0).toFixed(1));
-          console.log(typeof parseInt(0).toFixed(1));
         }}
       >
         Reset

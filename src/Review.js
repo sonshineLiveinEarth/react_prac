@@ -28,8 +28,6 @@ const Review = (props) => {
               }}
               onClick={() => {
                 setRate(score);
-                console.log(rate);
-                console.log(score);
               }}
             ></Circle>
           );
