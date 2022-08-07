@@ -33,5 +33,3 @@
 
 [회고글 링크](https://velog.io/@yunju/%EA%B0%9C%EC%9D%B8%EA%B3%BC%EC%A0%9C)
 
-
-[googlelink]: https://google.com "Go google"
